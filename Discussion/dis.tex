@@ -1,0 +1,69 @@
+\documentclass[12pt, twoside]{report}
+\usepackage{layout}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm]{geometry}
+\usepackage{biblatex}
+\addbibresource{bibs.bib}
+
+\graphicspath{ {./src/} }
+
+
+\begin{document}
+
+\chapter{Discussion}
+
+
+From the investigation of this study, we found that encoder based kinematic model
+is not the best approach due to its limitations \parencite{lynch_modern_2017,li_kinematic_2020,taheri_kinematic_2015}. This is because of its inherent
+nature of wheel slippage. \\
+
+Even if the ArUco marker gives absolute posotion and orientation, the detection of the 
+ArUco marker is not robust. This is because of the motion blur and occlusion.\\
+
+However, we managed to address this issue by employing a 
+deep learning technique. This proved to be an efficient method for 
+determining the position and orientation of the Instrumented Arm-Skateboard (ArmBo) \parencite{zhang_deeptag_2021,garrido-jurado_automatic_2014,li_corner_2021}. \\
+
+This allows us to track the position of the ArmBo in real-time, with a low resource 
+hardware, instead of relying on a high-end GPU. This makes the ArmBo more affordable
+and accessible to the patients. \\
+
+To avoid marker occlution, we have used three ArUco markers. 
+This allows us to track the ArmBo even if any two of the markers is occluded. \\
+
+This simple setup can be used in both clinical and home settings.
+
+\section{Future Work}
+
+\begin{itemize}
+    \item The ArmBo will be equiped with load cells in the arm rest. This will
+    help us understand the amount of loading is given to the skateboard while performing
+    the therapy. The arm rest will be spring actuated, as it will give the users
+    haptic feedback while performing the therapy.
+    \item We will be doing a usability study with healthy subjects, and improve the 
+    usability of the ArmBo. Following which we will do a patient trial.
+  \end{itemize}
+
+
+\chapter{Conclusion}
+In summary, we have created an affordable, open-source, and user-friendly arm skateboard, ArmBo, designed for arm motion therapy analysis. All components, including software, hardware (CAD models), and firmware, 
+are open-source and can be easily customized to meet user requirements. \\
+
+
+The algorithm, powered by the YOLOv8n mobile model, 
+doesn’t necessitate a high-end GPU. It can operate at up to 33 Hz 
+using only a CPU, making it compatible with low-resource devices like 
+a Raspberry Pi 4 or a laptop. \\
+
+ArmBo’s standout features include its extreme portability, 
+the need for just a 720p webcam, and its quick setup time. 
+These make it adaptable for use in diverse settings, from clinics to homes. 
+It functions as an effective tool for patient arm movement analysis, 
+providing real-time feedback. \\
+
+
+
+
+\end{document}

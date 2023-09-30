@@ -1,0 +1,67 @@
+\documentclass[12pt, twoside]{report}
+\usepackage{layout}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, left = 4.0132cm, right = 25mm]{geometry}
+
+\usepackage{docmute}
+\usepackage{import}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{float}
+\usepackage{biblatex}
+\usepackage{multirow}
+
+\addbibresource{bibs.bib}
+
+
+\setmainfont{Times New Roman}
+
+\graphicspath{ {./src/} }
+
+\titleformat{\chapter}{\Huge\bfseries}{Chapter \thechapter{}.\ }{0ex}{}
+\titlespacing*{\chapter}{0 pt}{-\baselineskip}{16 pt}
+
+\begin{document}
+
+\subimport{FrontPage/}{front}
+
+\onehalfspacing
+
+\newpage
+
+\subimport{Acknowledgement/}{ack}
+\newpage
+
+\subimport{Abstract/}{abstract}
+
+
+\newpage
+
+\listoffigures
+\listoftables
+
+\tableofcontents
+
+\newpage
+
+%introduction
+\subimport{Introduction/}{intro}
+\newpage
+
+\subimport{Litrature/}{lit}
+
+% methods
+\subimport{Methods/}{methods}
+
+%discussion
+\subimport{Discussion/}{dis}
+
+
+% references
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+
+\end{document}

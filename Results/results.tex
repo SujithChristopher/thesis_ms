@@ -1,0 +1,202 @@
+\documentclass[12pt, twoside]{report}
+\usepackage{layout}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+% \usepackage{fontspec}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, left = 4.0132cm, right = 25mm]{geometry}
+
+\usepackage{setspace}
+\usepackage{titlesec}
+
+\titleformat*{\section}{\Huge\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+
+\graphicspath{ {./src/} }
+
+
+
+\begin{document}
+% new section with size 24
+
+\chapter{Results}
+
+\section{Investigation of the kinematics of the robot}
+
+This general expression is taken from the book
+"Modern robotics mecanics planning and control" by Kevin M Lynch, Frank C Park,
+page no 512, please refer this section for more details.
+
+\section{Three wheel omnidirectional robot}
+
+
+\begin{equation}
+    h_1(0) \mathcal{V}_b = \frac{1}{r_i} \left[\begin{array}{cc}
+            1 & \tan\gamma_i \\
+        \end{array}\right]
+    \left[\begin{array}{cc}
+            \cos \beta_i  & \sin \beta_i \\
+            -\sin \beta_i & \cos \beta_i \\
+        \end{array}\right]
+    \begin{bmatrix}
+        -y_i & 1 & 0 \\
+        x_i  & 0 & 1 \\
+    \end{bmatrix} \mathcal{V}_b
+\end{equation}
+
+\begin{equation*}
+    \gamma_1 = 0, \beta_1 = 0
+\end{equation*}
+
+\begin{equation}
+    = \frac{1}{r_1} \left[\begin{array}{cc}
+            1 & 0 \\
+        \end{array}\right]
+    \left[\begin{array}{cc}
+            \cos 0  & \sin 0 \\
+            -\sin 0 & \cos 0 \\
+        \end{array}\right]
+    \begin{bmatrix}
+        -y_1 & 1 & 0 \\
+        x_1  & 0 & 1 \\
+    \end{bmatrix}
+    \mathcal{V}_b
+\end{equation}
+
+\begin{equation}
+    = \frac{1}{r_1} \left[\begin{array}{cc}
+            1 & 0 \\
+        \end{array}\right]
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        -y_1 & 1 & 0 \\
+        x_1  & 0 & 1 \\
+    \end{bmatrix}
+    \mathcal{V}_b
+\end{equation}
+\begin{equation}
+    = \frac{1}{r_1}
+    \begin{bmatrix}
+        -y_1 & 1 & 0 \\
+    \end{bmatrix}
+    \mathcal{V}_b
+\end{equation}
+
+\begin{equation}
+    r_i = r_1 = r_2 = r_3 = r
+\end{equation}
+
+\begin{equation}
+    h_1(0) \mathcal{V}_b = \frac{1}{r}
+    \begin{bmatrix}
+        -y_1 & 1 & 0 \\
+    \end{bmatrix}
+    \mathcal{V}_b
+\end{equation}
+
+% for 2nd wheel
+% bold text here
+
+Similarly for the second wheel
+
+\begin{equation}
+    h_2(0) \mathcal{V}_b = \frac{1}{r}
+    \begin{bmatrix}
+        \frac{1}{2}y_2 - \frac{\sqrt{3}}{2}x_2 & \frac{-1}{2} & \frac{- \sqrt{3}}{2} \\
+    \end{bmatrix}
+    \mathcal{V}_b
+\end{equation}
+
+% for 3rd wheel
+% bold text here
+
+Similarly for the third wheel
+
+\begin{equation}
+    h_3(0) \mathcal{V}_b = \frac{1}{r}
+    \begin{bmatrix}
+        \frac{1}{2}y_3 + \frac{\sqrt{3}}{2}x_3 & \frac{-1}{2} & \frac{ \sqrt{3}}{2} \\
+    \end{bmatrix}
+    \mathcal{V}_b
+\end{equation}
+
+
+We know that
+
+\begin{equation}
+    y_2 = y_3,  x_2 = -x_3
+\end{equation}
+
+The final expression for the three wheel omnidirectional robot is
+
+\begin{equation}
+    H(0)\mathcal{V}_b = \frac{1}{r}
+    \begin{bmatrix}
+        -y_1                                   & 1            & 0                    \\
+        \frac{1}{2}y_2 - \frac{\sqrt{3}}{2}x_2 & \frac{-1}{2} & \frac{- \sqrt{3}}{2} \\
+        \frac{1}{2}y_3 + \frac{\sqrt{3}}{2}x_3 & \frac{-1}{2} & \frac{ \sqrt{3}}{2}  \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \omega_{bz}   \\
+        \upsilon_{bx} \\
+        \upsilon_{by} \\
+    \end{bmatrix}
+\end{equation}
+
+To find
+$
+    \begin{bmatrix}
+        \omega_{bz}   \\
+        \upsilon_{bx} \\
+        \upsilon_{by} \\
+    \end{bmatrix}
+$\\
+
+% insert symbol
+Lets insert the symbol for the above expression
+\begin{align}
+    \mathcal{A}  =
+    \begin{bmatrix}
+        -y_1                                   & 1            & 0                    \\
+        \frac{1}{2}y_2 - \frac{\sqrt{3}}{2}x_2 & \frac{-1}{2} & \frac{- \sqrt{3}}{2} \\
+        \frac{1}{2}y_3 + \frac{\sqrt{3}}{2}x_3 & \frac{-1}{2} & \frac{ \sqrt{3}}{2}  \\
+    \end{bmatrix}
+\end{align}
+
+Solving the above will lead to the following expression
+
+\begin{align}
+    \mathcal{A} =
+    \begin{bmatrix}
+        -d & 1            & 0                    \\
+        -d & \frac{-1}{2} & \frac{- \sqrt{3}}{2} \\
+        -d & \frac{-1}{2} & \frac{\sqrt{3}}{2}   \\
+    \end{bmatrix}
+\end{align}
+
+To find
+$
+    \begin{bmatrix}
+        \omega_{bz}   \\
+        \upsilon_{bx} \\
+        \upsilon_{by} \\
+    \end{bmatrix}
+$ = $r\mathcal{A}^{-1} u$
+
+
+\newpage
+
+\section*{ArUco marker detection}
+
+An ArUco marker is a square-shaped marker that has a wide black border and an inner
+binary matrix that determines its identifier as shown in FIG. ArUco markers are commonly
+used in computer vision applications such as robot navigation and augmented reality.
+The ArUco marker has a fixed dimensions which helps the program to estimate its position and orientation, in real-world frame.
+\end{document}

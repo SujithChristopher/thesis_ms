@@ -1,0 +1,41 @@
+
+\documentclass[12pt, twoside]{report}
+\usepackage{layout}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm]{geometry}
+
+
+\graphicspath{ {./src/} }
+
+\begin{document}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+%page title
+
+Stroke can cause motor function impairment in the arms and hands.
+Arm skateboard is a mobility device that is commonly used to aid recovery from stroke.
+Though conventionally used skateboards are simple, inexpensive, and easily made/procured, they lack movement sensing capabilities.
+As a result, participants do not receive any feedback during training, which can lead to boredom and poor adherence in therapy.\\
+
+The primary objective of this study is to investigate different position and orientation tracking algorithms and validate their
+accuracy against a gold standard OptiTrack. The secondary objective is to develop an instrumented arm-skateboard (ArmBo)
+that can provide real-time feedback during training and assessing movement ability. \\
+
+The ArmBo platform consists of three omni-directional wheels and an arm-support on top.
+It has two sensing modalities: optical encoders at the three omni-directional wheels, and an inertial measurement unit (IMU).
+These sensing modalities can be used to estimate the position and orientation of ArmBo.
+The platform is equipped with a Teensy 4.0 microcontroller that acquires real-time data from the optical encoders and the IMU.
+The data is wirelessly streamed to a PC through an HC-05 Bluetooth module. \\
+
+In our study, we investigated two distinct tracking algorithms to determine the position and orientation of ArmBo.
+The first approach is a sensor-fusion based tracking method that uses an ArUco marker (detected using an RGB camera) and an IMU.
+The second approach is an encoder-based tracking method. \\
+
+Compared to the encoder-based approach, the sensor-fusion based approach yielded superior results
+with a maximum absolute error of 4.1 cm, 0.2 cm, and 3.1 cm in the X, Y, and Z axes, respectively. \\
+
+This in-house developed ArmBo provides a simple and effective way, to analyse arm motion therapy.\\
+
+\end{document}
