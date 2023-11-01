@@ -305,9 +305,9 @@ wheel $w_1$, $\gamma_1 = 0, \beta_1 = \frac{\pi}{2}$ so, the expression becomes
 Thus, the expression for the first wheel is
 
 \begin{equation}
-    h_1(0) \mathcal{V}_b = \frac{1}{r}
+    h_2(0) \mathcal{V}_b = \frac{1}{r}
     \begin{bmatrix}
-        -x_1 & 0 & 1 \\
+        x_2 & 0 & 1 \\
     \end{bmatrix}
     \mathcal{V}_b
 \end{equation}
@@ -318,9 +318,9 @@ Thus, the expression for the first wheel is
 Similarly for the second wheel, where $\gamma_2 = 0, \beta_2 = \frac{3\pi}{2}$
 
 \begin{equation}
-    h_2(0) \mathcal{V}_b = \frac{1}{r}
+    h_3(0) \mathcal{V}_b = \frac{1}{r}
     \begin{bmatrix}
-        -x_2 & 0 & 1 \\
+        -x_3 & 0 & -1 \\
     \end{bmatrix}
     \mathcal{V}_b
 \end{equation}
@@ -332,9 +332,9 @@ Similarly for the second wheel, where $\gamma_2 = 0, \beta_2 = \frac{3\pi}{2}$
 Similarly for the third wheel
 
 \begin{equation}
-    h_3(0) \mathcal{V}_b = \frac{1}{r}
+    h_1(0) \mathcal{V}_b = \frac{1}{r}
     \begin{bmatrix}
-        -y_3 & 1 & 0 \\
+        y_1 & -1 & 0 \\
     \end{bmatrix}
     \mathcal{V}_b
 \end{equation}
@@ -343,7 +343,7 @@ Similarly for the third wheel
 We know that
 
 \begin{equation}
-    y = y_3,  x_1 = -x_2
+    y = y_1,  x_2 = -x_3
 \end{equation}
 
 The final expression for the three wheel omnidirectional robot is
@@ -351,10 +351,9 @@ The final expression for the three wheel omnidirectional robot is
 \begin{equation}
     H(0)\mathcal{V}_b = \frac{1}{r}
     \begin{bmatrix}
-        -x & 0 & -1 \\
-        x  & 0 & -1 \\
-        -y & 1 & 0  \\
-
+        y  & -1 & 0 \\
+        -x & 0  & 1 \\
+        x  & 0  & 1 \\
     \end{bmatrix}
     \begin{bmatrix}
         \omega_{bz}   \\
@@ -377,9 +376,9 @@ Lets insert the symbol for the above expression
 \begin{align}
     \mathcal{A}  =
     \begin{bmatrix}
-        -x & 0 & -1 \\
-        x  & 0 & -1 \\
-        -y & 1 & 0  \\
+        y  & -1 & 0 \\
+        -x & 0  & 1 \\
+        x  & 0  & 1 \\
     \end{bmatrix}
 \end{align}
 
@@ -579,20 +578,20 @@ YOLO (You Only Look Once) is a deep learning framework that is used for object d
 
 \subsection{Dataset preparation}
 
-The dataset was compiled by capturing the ArUco marker of two distinct sizes, 
-4cm and 5cm, at various orientations and speeds. The data was specifically 
-gathered from the ArUco mip dictionary to evaluate the model’s performance 
-against the DeepTag model. Each recording presented a unique scenario for 
+The dataset was compiled by capturing the ArUco marker of two distinct sizes,
+4cm and 5cm, at various orientations and speeds. The data was specifically
+gathered from the ArUco mip dictionary to evaluate the model’s performance
+against the DeepTag model. Each recording presented a unique scenario for
 the placement of the ArUco marker.
 
-The dataset was recorded at a rate of 30 frames per second, with the video 
-subsequently divided into individual frames. These frames were annotated 
-using the ArUco marker detection algorithm. To simulate real-world 
-conditions, Gaussian blur and motion blur were applied to the frames. 
-Gaussian blur was implemented at nine different angles (0, 30, 60, 90, 120, 
+The dataset was recorded at a rate of 30 frames per second, with the video
+subsequently divided into individual frames. These frames were annotated
+using the ArUco marker detection algorithm. To simulate real-world
+conditions, Gaussian blur and motion blur were applied to the frames.
+Gaussian blur was implemented at nine different angles (0, 30, 60, 90, 120,
 140, etc.) and six varying intensities.
 
-The annotated frames were then divided into training, validation, 
+The annotated frames were then divided into training, validation,
 and testing datasets. These datasets were utilized to train the YOLOv8 model.
 
 \begin{figure}
@@ -766,7 +765,7 @@ within the acceptable limits.
     \end{tabular}
     \caption{Coordinate error}
     {YOLO WC: YOLO without drift correction, YOLO WDC: YOLO with drift correction
-    Only AR angle: using the Orientation estimated by ArUco marker instead of the IMU}
+        Only AR angle: using the Orientation estimated by ArUco marker instead of the IMU}
     \label{tab:three_marker_accuracy}
 
 \end{table}

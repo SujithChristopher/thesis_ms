@@ -1,0 +1,62 @@
+\documentclass[12pt, twoside]{report}
+\usepackage{layout}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+% \usepackage{fontspec}
+\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, left = 4.0132cm, right = 25mm]{geometry}
+
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{svg}
+\usepackage{float}
+
+\usepackage{multirow}
+
+
+\graphicspath{ {./src/} }
+\titleformat{\chapter}{\Huge\bfseries}{Chapter \thechapter{}.\ }{0ex}{}
+\titlespacing*{\chapter}{0 pt}{-\baselineskip}{8 pt}
+
+\onehalfspacing
+
+
+\begin{document}
+% new section with size 24
+
+
+\chapter{Instrumented arm skateboard (ArmBo)}
+
+\section{ArmBo}
+
+
+\begin{equation*}
+    \vec{m}_x = m_1 - m_3
+\end{equation*}
+
+\begin{equation*}
+    \vec{m}_z = m_1 - m_3
+\end{equation*}
+
+\begin{equation*}
+    \vec{m}_y = \vec{m}_z \times \vec{m}_x
+\end{equation*}
+
+\begin{equation*}
+    R = \begin{bmatrix}
+        \vec{m}_x & \vec{m}_y & \vec{m}_z
+    \end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+    R_{\Delta} = R_t^{T} \cdot R_{0}
+\end{equation*}
+
+
+
+
+
+
+
+
+\end{document}
